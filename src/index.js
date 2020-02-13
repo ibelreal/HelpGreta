@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 // import './index.css';
 
 
-//basename="/HelpGreta"
-ReactDOM.render(<BrowserRouter  >
+ReactDOM.render(<BrowserRouter basename="/HelpGreta">
     <App />
 </BrowserRouter>, document.getElementById('root'));
