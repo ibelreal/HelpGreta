@@ -5,6 +5,7 @@ import Filters from './Filters';
 import CityList from './CityList';
 import MapCities from './MapCities';
 import '../stylesheets/App.scss'
+import fetchCities from '../services/api';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,17 +15,41 @@ class App extends React.Component {
       loading: true
     }
     this.renderMapCities = this.renderMapCities.bind(this);
+    this.onHover = this.onHover.bind(this);
   }
   componentDidMount() {
+    fetchCities().then(loadData => {
+      if (loadData === undefined) {
+        return this.setState({ loading: true });
+      }
+      else {
+        console.log(loadData);
 
+        return this.setState({ pollution: loadData, loading: false });
+      }
+    });
   }
+
+  //OnHover 
+  onHover(ev) {
+    console.log(ev + "Has accedido!!")
+    // const {
+    //   features,
+    //   srcEvent: { offsetX, offsetY }
+    // } = ev;
+    // const hoveredFeature = features && features.find(f => f.layer.id === 'data');
+
+    // this.setState({ hoveredFeature, x: offsetX, y: offsetY });
+  }
+
+
 
   //Render of MapCities
   renderMapCities() {
     return (
       <div>
-        <MapCities />
-      </div>
+        <MapCities pollution={this.state.pollution} />
+      </div >
     )
 
 
@@ -39,10 +64,8 @@ class App extends React.Component {
           <Route exact path='/'>
             <CityList />
           </Route>
-          <Route path='/1' render={this.renderMapCities} />
-          {/* path='/cities/:id' */}
+          <Route path='/cities' render={this.renderMapCities} />
         </Switch>
-        {/* fetch europa  https://api.waqi.info/map/bounds/?latlng=64.554282,-24.228128,38.935809,28.855621&token=85c0bae54393878039985ebe5ebae7977c0c8acc */}
       </div>
     );
   }
