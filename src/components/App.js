@@ -12,9 +12,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       pollution: [],
+      searchCity: '',
       loading: true
     }
     this.renderMapCities = this.renderMapCities.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.onHover = this.onHover.bind(this);
   }
   componentDidMount() {
@@ -42,7 +44,10 @@ class App extends React.Component {
     // this.setState({ hoveredFeature, x: offsetX, y: offsetY });
   }
 
-
+  //Function to search for the city
+  handleSearch(searchCity) {
+    this.setState({ searchCity });
+  }
 
   //Render of MapCities
   renderMapCities() {
@@ -56,10 +61,11 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="App">
         <Header />
-        <Filters />
+        <Filters handleSearch={this.handleSearch} valueCity={this.state.searchCity} />
         <Switch>
           <Route exact path='/'>
             <CityList />
