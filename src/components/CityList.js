@@ -15,21 +15,29 @@ function CityList(props) {
         return (
             <div>
                 <ul className="list">
-                    {props.filterBySearch.map(city => (
-
-                        <li key={city.uid} className="list__item">
-                            <Link to={`/cities/${city.uid}`} replace>
-                                <p>{city.station.name}</p>
-                            </Link>
-                        </li>
-                    ))}
+                    {(props.isSorted === true)
+                        ? props.filterBySearch.sort((a, b) => a.station.name.localeCompare(b.station.name)).map(city => (
+                            <li key={city.uid} className="list__item">
+                                <Link to={`/cities/${city.uid}`} replace>
+                                    <p>{city.station.name}</p>
+                                </Link>
+                            </li>
+                        ))
+                        : props.filterBySearch.map(city => (
+                            <li key={city.uid} className="list__item">
+                                <Link to={`/cities/${city.uid}`} replace>
+                                    <p>{city.station.name}</p>
+                                </Link>
+                            </li>
+                        ))}
                 </ul>
             </div >
         );
     }
 }
 CityList.propTypes = {
-    filteredBySearch: PropTypes.arrayOf(PropTypes.object)
+    filteredBySearch: PropTypes.arrayOf(PropTypes.object).isRequired,
+    isSorted: PropTypes.bool
 }
 
 export default CityList;

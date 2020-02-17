@@ -9,6 +9,7 @@ const MAPBOX_TOKEN = 'pk.eyJ1IjoibGViMDAiLCJhIjoiY2s2bHlrZ3d2MGlwcDNycnJsdjIxaTV
 const MapCities = (props) => {
     const { latCity, lonCity } = props;
 
+    //Map view
     const [viewport] = useState({
         width: 700,
         height: 700,
@@ -17,7 +18,7 @@ const MapCities = (props) => {
         zoom: 3
     });
 
-
+    //To stop the map from moving
     function onViewportChange(viewport) {
         if (viewport.longitude > 0) {
             viewport.longitude = 0;

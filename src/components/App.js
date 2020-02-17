@@ -13,13 +13,16 @@ class App extends React.Component {
     this.state = {
       pollution: [],
       searchCity: '',
+      isSorted: false,
       loading: true
     }
     this.renderMapCities = this.renderMapCities.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.filterBySearch = this.filterBySearch.bind(this);
     this.selectedCity = this.selectedCity.bind(this);
+    this.handleSorted = this.handleSorted.bind(this);
   }
+
   componentDidMount() {
     fetchCities().then(loadData => {
       if (!loadData) {
@@ -37,11 +40,19 @@ class App extends React.Component {
     this.setState({ searchCity });
   }
 
+  //Function to sort the list of the cities
+  handleSorted() {
+    (this.state.isSorted === false)
+      ? this.setState({ isSorted: true })
+      : this.setState({ isSorted: false })
+  }
+
   //Function to filter the cities 
   filterBySearch() {
     return (
       this.state.pollution
         .filter(city => city.station.name.toLowerCase().includes(this.state.searchCity))
+
     );
   }
 
@@ -66,7 +77,7 @@ class App extends React.Component {
       return (
         <div>
           <MapCities latCity={infoCity.lat} lonCity={infoCity.lon} />
-          <CityList filterBySearch={this.filterBySearch()} />
+          <CityList filterBySearch={this.filterBySearch()} isSorted={this.state.isSorted} />
         </div >
       )
     }
@@ -78,10 +89,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Filters handleSearch={this.handleSearch} valueCity={this.state.searchCity} />
+        <Filters
+          handleSearch={this.handleSearch}
+          valueCity={this.state.searchCity}
+          handleSorted={this.handleSorted}
+        />
         <Switch>
           <Route exact path='/'>
-            <CityList filterBySearch={this.filterBySearch()} />
+            <CityList filterBySearch={this.filterBySearch()} isSorted={this.state.isSorted} />
           </Route>
           <Route path='/cities/:uid' render={this.renderMapCities} />
         </Switch>
