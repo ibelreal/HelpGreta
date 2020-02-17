@@ -18,7 +18,7 @@ function CityList(props) {
                     {props.filterBySearch.map(city => (
 
                         <li key={city.uid} className="list__item">
-                            <Link to={`/cities/${city.uid}`}>
+                            <Link to={`/cities/${city.uid}`} replace>
                                 <p>{city.station.name}</p>
                             </Link>
                         </li>
