@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Help Greta test project
 
-## Available Scripts
+Link to server of GitHub Pages: https://ibelreal.github.io/HelpGreta/#/
 
-In the project directory, you can run:
+### Description
 
-### `npm start`
+Hello, this is mi solution to a technical test, in which, you have to create an app with two pages. The first one will show a list of N cities polluted in Europe that is connected to an external API and show results from it. When you click in the city you will be redirected to the other page that will show you the city in a map.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- React
+- Javascript
+- Sass
+- Mapbox-gl-js (Dependency)
 
-### `npm test`
+## Structure of the project
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
++ src
+    + components
+    + images
+    + services
+    + stylesheets
+    + test
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> To saw it in local, you need to clone the repository, introduce `npm install` and execute `npm start` in the terminal and it will be open in [http://localhost:3000](http://localhost:3000)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Technical Requirements:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[x] The app should be done in React
 
-### `npm run eject`
+[x] The app should have two pages.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[x] The info should be received through an asynchronous call.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Requirements developed to be tested:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[x] Does it work? Yes, it has full functionality.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[x] Tested? Yes, it has a few test. But it can have more and more elaborate it. It's my first time using and creating test, so they could be not necessary or not testing the important parts of the code.
 
-## Learn More
+[x] Easy Code? I think so. I try to make it quite simple an easy to understand. It has comments.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[x] Well Design? Maybe it could be better, but the structure of the project it's simple. It's the usual structure for beginners.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[x] Performs well? Its prepared to catch some errors, but it can be improved. It's easy to mantain because it's using a free trial for the two api's that it needs to work (map and dataFetch).
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Non-Requirements developed:
 
-### Analyzing the Bundle Size
+[x] Mobile support: I used `SASS` to adapt the web so it could be `Responsive` and available in all devices.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
