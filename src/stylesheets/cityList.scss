@@ -1,16 +1,18 @@
 .container {
-  margin: 10px;
+  margin: 5px;
   background-color: #f8f9fb;
-  min-width: 300px;
+  min-width: 400px;
 }
 .not__found {
+  border: blue 2px solid;
+  margin: 5px;
+  background-color: #f8f9fb;
 }
 .list {
   border: blue 2px solid;
   list-style-type: none;
 
   &__item {
-    color: #9b9b9b;
     font-size: 18px;
     margin-bottom: 10px;
 
@@ -18,18 +20,14 @@
       display: block;
       height: 26px;
       line-height: 26px;
-      text-decoration: none;
-      color: #4a4a4a;
+      color: #000000;
       font-weight: bold;
       padding: 0px 4px;
     }
     &:hover {
       font-size: 20px;
-      opacity: 0.9;
-      color: rgb(219, 145, 8);
+      opacity: 0.8;
+      background-color: #a0615f;
     }
   }
-}
-.a {
-  text-decoration-line: dashed;
 }

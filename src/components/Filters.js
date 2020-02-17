@@ -29,7 +29,8 @@ const Filters = (props) => {
                 value={props.valueCity}
                 onChange={handleSearch}
             />
-            <label htmlFor="isSorted" className='form__label'>Sort List: </label>
+
+            <label htmlFor="isSorted" className='form__label'>Sort List:</label>
             <input
                 className='form__input checkbox'
                 name="isSorted"
