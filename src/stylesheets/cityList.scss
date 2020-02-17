@@ -2,16 +2,27 @@
   margin: 5px;
   background-color: #f8f9fb;
   min-width: 400px;
+  &__text {
+    margin: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #da9e83;
+  }
+  &__img {
+    justify-content: center;
+    align-items: center;
+    &--phone {
+      width: 200px;
+      @media all and (min-width: 768px) {
+        width: 300px;
+      }
+    }
+  }
 }
-.not__found {
-  border: blue 2px solid;
-  margin: 5px;
-  background-color: #f8f9fb;
-}
+
 .list {
   border: blue 2px solid;
   list-style-type: none;
-
   &__item {
     font-size: 18px;
     margin-bottom: 10px;

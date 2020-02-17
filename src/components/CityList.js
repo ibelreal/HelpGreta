@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import '../stylesheets/cityList.scss'
+import '../stylesheets/cityList.scss';
+import phone from '../images/dead.svg';
 
 function CityList(props) {
     const { filterBySearch } = props
     if (!filterBySearch || filterBySearch.length === 0) {
         return (
-            <div className='container not__found'>
-                <p className='not__found'>Oh...We can't find the city... </p>
+            <div className='container'>
+                <p className='container__text'>Oh...We can't find the city... </p>
+                <div className='container__img'>
+                    <img className='container__img--phone' src={phone} alt="dead phone" />
+                </div>
             </div>
         )
     }
