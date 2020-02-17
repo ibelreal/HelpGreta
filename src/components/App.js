@@ -4,8 +4,8 @@ import Header from './Header';
 import Filters from './Filters';
 import CityList from './CityList';
 import MapCities from './MapCities';
-import '../stylesheets/App.scss'
 import fetchCities from '../services/api';
+import '../stylesheets/App.scss'
 
 class App extends React.Component {
   constructor(props) {
@@ -75,19 +75,18 @@ class App extends React.Component {
     let infoCity = this.selectedCity(uidCity);
     if (infoCity !== undefined) {
       return (
-        <div>
+        <body className="map">
           <MapCities latCity={infoCity.lat} lonCity={infoCity.lon} />
           <CityList filterBySearch={this.filterBySearch()} isSorted={this.state.isSorted} />
-        </div >
+        </body >
       )
     }
 
   }
 
   render() {
-    console.log(this.state)
     return (
-      <div className="App">
+      <body className="home">
         <Header />
         <Filters
           handleSearch={this.handleSearch}
@@ -100,7 +99,7 @@ class App extends React.Component {
           </Route>
           <Route path='/cities/:uid' render={this.renderMapCities} />
         </Switch>
-      </div>
+      </body>
     );
   }
 }

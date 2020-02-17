@@ -1,0 +1,20 @@
+.container {
+}
+.not__found {
+}
+.list {
+  &__item {
+    text-decoration: none;
+    color: #9b9b9b;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    &--title {
+    }
+    &:hover {
+      font-size: 20px;
+      opacity: 0.5;
+      color: orange;
+    }
+  }
+}

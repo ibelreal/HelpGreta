@@ -1,0 +1,19 @@
+.form {
+  border: violet 2px solid;
+  &__label {
+  }
+  &__input {
+    width: 80%;
+    border: none;
+    text-align: center;
+    border-radius: 100px;
+    font-size: 16px;
+    height: 30px;
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+}
+.searchBar {
+}
+.checkbox {
+}
