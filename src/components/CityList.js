@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function CityList(props) {
     const { filterBySearch } = props
-    if (filterBySearch.length === 0) {
+    if (!filterBySearch || filterBySearch.length === 0) {
         return (
             <div className=''>
                 <p className=''>Oh...We can't find the city... </p>
@@ -36,7 +36,7 @@ function CityList(props) {
     }
 }
 CityList.propTypes = {
-    filteredBySearch: PropTypes.arrayOf(PropTypes.object).isRequired,
+    filteredBySearch: PropTypes.arrayOf(PropTypes.object),
     isSorted: PropTypes.bool
 }
 

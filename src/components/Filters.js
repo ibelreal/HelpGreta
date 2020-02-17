@@ -39,8 +39,8 @@ const Filters = (props) => {
     );
 }
 Filters.propTypes = {
-    handleSearch: PropTypes.func.isRequired,
-    handleSorted: PropTypes.func.isRequired
+    handleSearch: PropTypes.func,
+    handleSorted: PropTypes.func
 };
 
 export default Filters;
