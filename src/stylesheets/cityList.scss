@@ -1,20 +1,35 @@
 .container {
+  margin: 10px;
+  background-color: #f8f9fb;
+  min-width: 300px;
 }
 .not__found {
 }
 .list {
+  border: blue 2px solid;
+  list-style-type: none;
+
   &__item {
-    text-decoration: none;
     color: #9b9b9b;
     font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+
     &--title {
+      display: block;
+      height: 26px;
+      line-height: 26px;
+      text-decoration: none;
+      color: #4a4a4a;
+      font-weight: bold;
+      padding: 0px 4px;
     }
     &:hover {
       font-size: 20px;
-      opacity: 0.5;
-      color: orange;
+      opacity: 0.9;
+      color: rgb(219, 145, 8);
     }
   }
+}
+.a {
+  text-decoration-line: dashed;
 }

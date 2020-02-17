@@ -75,10 +75,10 @@ class App extends React.Component {
     let infoCity = this.selectedCity(uidCity);
     if (infoCity !== undefined) {
       return (
-        <body className="map">
+        <div className="map">
           <MapCities latCity={infoCity.lat} lonCity={infoCity.lon} />
           <CityList filterBySearch={this.filterBySearch()} isSorted={this.state.isSorted} />
-        </body >
+        </div >
       )
     }
 
@@ -86,7 +86,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <body className="home">
+      <main className="home">
         <Header />
         <Filters
           handleSearch={this.handleSearch}
@@ -99,7 +99,7 @@ class App extends React.Component {
           </Route>
           <Route path='/cities/:uid' render={this.renderMapCities} />
         </Switch>
-      </body>
+      </main>
     );
   }
 }

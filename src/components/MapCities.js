@@ -12,10 +12,10 @@ const MapCities = (props) => {
 
     //Map view
     const [viewport] = useState({
-        width: 700,
-        height: 700,
+        width: 500,
+        height: 600,
         latitude: 53.36,
-        longitude: 9.06,
+        longitude: 12.06,
         zoom: 3
     });
 

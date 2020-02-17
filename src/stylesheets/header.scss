@@ -1,21 +1,43 @@
 .header {
-  border: red 2px solid;
-  text-align: center;
-  padding: 40px;
   width: 100%;
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
+  align-items: center;
   background-color: #323d48;
-
   &__title {
     text-transform: uppercase;
-    font-size: 25px;
+    font-size: 40px;
     color: white;
     font-weight: 700;
+    animation: skew 3s infinite;
+    transform: skew(20deg);
+    animation-direction: alternate;
+
+    @keyframes skew {
+      0% {
+        transform: skewX(20deg);
+      }
+      100% {
+        transform: skewX(-20deg);
+      }
+    }
 
     @media all and (min-width: 768px) and (max-width: 1200px) {
-      font-size: 35px;
+      font-size: 50px;
     }
     @media all and (min-width: 1200px) {
-      font-size: 40px;
+      font-size: 60px;
+    }
+  }
+
+  &__img {
+    display: none;
+    @media all and (min-width: 768px) {
+      display: inline;
+      width: 100px;
     }
   }
 }
