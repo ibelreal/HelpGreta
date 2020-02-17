@@ -6,9 +6,9 @@ const fetchCities = () => fetch(ENDPOINT)
     .then(response => {
         let data = [];
         for (let i = 0; i < 10; i++) {
-            data.push(response[i])
+            data.push(response[i]);
         }
-        return data
+        return data;
     })
     .catch(e => alert(`Se ha detectado un error: ${e}`))
 

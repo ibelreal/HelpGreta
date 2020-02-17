@@ -17,46 +17,59 @@ class App extends React.Component {
     }
     this.renderMapCities = this.renderMapCities.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.onHover = this.onHover.bind(this);
+    this.filterBySearch = this.filterBySearch.bind(this);
+    this.selectedCity = this.selectedCity.bind(this);
   }
   componentDidMount() {
     fetchCities().then(loadData => {
-      if (loadData === undefined) {
+      if (!loadData) {
         return this.setState({ loading: true });
       }
       else {
-        console.log(loadData);
-
         return this.setState({ pollution: loadData, loading: false });
       }
     });
   }
 
-  //OnHover 
-  onHover(ev) {
-    console.log(ev + "Has accedido!!")
-    // const {
-    //   features,
-    //   srcEvent: { offsetX, offsetY }
-    // } = ev;
-    // const hoveredFeature = features && features.find(f => f.layer.id === 'data');
-
-    // this.setState({ hoveredFeature, x: offsetX, y: offsetY });
-  }
 
   //Function to search for the city
   handleSearch(searchCity) {
     this.setState({ searchCity });
   }
 
-  //Render of MapCities
-  renderMapCities() {
+  //Function to filter the cities 
+  filterBySearch() {
     return (
-      <div>
-        <MapCities pollution={this.state.pollution} />
-      </div >
-    )
+      this.state.pollution
+        .filter(city => city.station.name.toLowerCase().includes(this.state.searchCity))
+    );
+  }
 
+  //Function that returns the latitude and longitude of the city
+  selectedCity(uidCity) {
+    let infoCity = {}
+    for (let i = 0; i < this.state.pollution.length; i++) {
+      if (this.state.pollution[i].uid === uidCity) {
+        infoCity.lat = this.state.pollution[i].lat;
+        infoCity.lon = this.state.pollution[i].lon;
+        return infoCity;
+      }
+    }
+  }
+
+
+  //Render of MapCities
+  renderMapCities(props) {
+    let uidCity = parseInt(props.match.params.uid);
+    let infoCity = this.selectedCity(uidCity);
+    if (infoCity !== undefined) {
+      return (
+        <div>
+          <MapCities latCity={infoCity.lat} lonCity={infoCity.lon} />
+          <CityList filterBySearch={this.filterBySearch()} />
+        </div >
+      )
+    }
 
   }
 
@@ -68,9 +81,9 @@ class App extends React.Component {
         <Filters handleSearch={this.handleSearch} valueCity={this.state.searchCity} />
         <Switch>
           <Route exact path='/'>
-            <CityList />
+            <CityList filterBySearch={this.filterBySearch()} />
           </Route>
-          <Route path='/cities' render={this.renderMapCities} />
+          <Route path='/cities/:uid' render={this.renderMapCities} />
         </Switch>
       </div>
     );

@@ -6,7 +6,7 @@ const Filters = (props) => {
         ev.preventDefault();
     };
     const handleSearch = ev => {
-        const searchCity = ev.target.value.trim().toLowerCase();
+        const searchCity = ev.target.value.toLowerCase();
         props.handleSearch(searchCity);
     };
     return (

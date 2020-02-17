@@ -6,13 +6,13 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const MAPBOX_TOKEN = 'pk.eyJ1IjoibGViMDAiLCJhIjoiY2s2bHlrZ3d2MGlwcDNycnJsdjIxaTV3eCJ9.EvM78HQcXB5yJV64WiFyfA';
 
 const MapCities = (props) => {
-    console.log("Hey!" + props.pollution);
+    const { latCity, lonCity } = props;
+    console.log("Hey!" + latCity + lonCity);
     function onHoverCity(ev) {
         const {
             features,
             srcEvent: { offsetX, offsetY }
         } = ev;
-        console.log(offsetX, offsetY, features)
     }
     const [viewport] = useState({
         width: 700,
